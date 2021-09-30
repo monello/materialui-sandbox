@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Button from './Button'
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
 export default {
     title: 'MUI/Button',
@@ -32,4 +34,26 @@ Basic.args = {
     disabled: false,
     disableElevation: false,
     children: 'Button Label'
+}
+
+export const WithStartIcon = Template.bind({});
+WithStartIcon.args = {
+    ...Basic.args,
+    startIcon: <DeleteIcon />,
+    children: 'Delete'
+}
+
+export const WithEndIcon = Template.bind({});
+WithEndIcon.args = {
+    ...Basic.args,
+    endIcon: <SendIcon />,
+    children: 'Send'
+}
+
+export const WithBothIcons = Template.bind({});
+WithBothIcons.args = {
+    ...Basic.args,
+    startIcon: <DeleteIcon />,
+    endIcon: <SendIcon />,
+    children: 'Delete and Send'
 }

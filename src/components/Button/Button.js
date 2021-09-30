@@ -7,6 +7,8 @@ const Button = props => {
         size,
         disabled,
         disableElevation,
+        startIcon,
+        endIcon,
         onClickHandler
     } = props;
 
@@ -18,6 +20,8 @@ const Button = props => {
             disabled={disabled}
             disableElevation={disableElevation}
             onClick={onClickHandler}
+            startIcon={startIcon}
+            endIcon={endIcon}
         >
             {props.children}
         </MuiButton>
