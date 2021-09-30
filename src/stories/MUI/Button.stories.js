@@ -10,7 +10,7 @@ export default {
     argTypes: {
         variant: {
             options: ['text', 'contained', 'outlined'],
-            control: { type: 'select' }
+            control: { type: 'radio' }
         },
         color: {
             options: ['info', 'primary', 'secondary', 'success', 'error', 'warning'],
@@ -18,7 +18,7 @@ export default {
         },
         size: {
             options: ['small', 'medium', 'large'],
-            control: { type: 'select' }
+            control: { type: 'radio' }
         },
         onClick: { action: 'clicked' }
     }
