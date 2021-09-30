@@ -29,5 +29,7 @@ Basic.args = {
     variant: 'contained',
     color: 'primary',
     size: 'medium',
+    disabled: false,
+    disableElevation: false,
     children: 'Button Label'
 }
