@@ -59,11 +59,12 @@ export default function Toolbar(props) {
         menuId,
         mobileMenuId,
         handleMobileMenuOpen,
-        handleProfileMenuOpen
+        handleProfileMenuOpen,
+        variant
     } = props;
 
     return (
-        <MuiToolbar>
+        <MuiToolbar variant={variant}>
             <IconButton
                 size="large"
                 edge="start"
