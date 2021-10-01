@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
+import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '../Toolbar/Toolbar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -10,7 +10,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-export default function PrimarySearchAppBar() {
+export default function AppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -110,14 +110,14 @@ export default function PrimarySearchAppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <MuiAppBar position="static">
                 <Toolbar
                     menuId={menuId}
                     mobileMenuId={mobileMenuId}
                     handleMobileMenuOpen={handleMobileMenuOpen}
                     handleProfileMenuOpen={handleProfileMenuOpen}
                 />
-            </AppBar>
+            </MuiAppBar>
             {renderMobileMenu}
             {renderMenu}
         </Box>
