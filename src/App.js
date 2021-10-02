@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AppBar from './components/AppBar/AppBar'
+import SpeedDial from './components/SpeedDial/SpeedDial'
 import MuiToolbar from "@mui/material/Toolbar";
 
 import { CssBaseline, Box, Container } from '@mui/material'
@@ -13,6 +14,7 @@ function App(props) {
       <CssBaseline />
       <AppBar />
       <MuiToolbar />
+      <SpeedDial />
       <Container>
         <Box sx={{ my: 2 }}>
           <LoremIpsum

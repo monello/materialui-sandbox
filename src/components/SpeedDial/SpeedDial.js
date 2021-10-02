@@ -26,7 +26,7 @@ export default function SpeedDialTooltipOpen() {
     const handleClose = () => setOpen(false);
 
     return (
-        <Box sx={{ height: 500, transform: 'translateZ(0px)', flexGrow: 1 }}>
+        <>
             <Backdrop open={open} />
             <MuiSpeedDial
                 ariaLabel="SpeedDial tooltip example"
@@ -46,6 +46,6 @@ export default function SpeedDialTooltipOpen() {
                     />
                 ))}
             </MuiSpeedDial>
-        </Box>
+        </>
     );
 }
