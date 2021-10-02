@@ -5,6 +5,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Paper from '@mui/material/Paper';
+import Draggable from 'react-draggable';
+
+function PaperComponent(props) {
+    return (
+        <Draggable
+            handle="#scroll-dialog-title"
+            cancel={'[class*="MuiDialogContent-root"]'}
+        >
+            <Paper {...props} />
+        </Draggable>
+    );
+}
 
 export default function ScrollDialog() {
     const [open, setOpen] = React.useState(false);
@@ -39,8 +52,9 @@ export default function ScrollDialog() {
                 scroll={scroll}
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
+                PaperComponent={PaperComponent}
             >
-                <DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
+                <DialogTitle style={{ cursor: 'move' }} id="scroll-dialog-title">Subscribe</DialogTitle>
                 <DialogContent dividers={scroll === 'paper'}>
                     <DialogContentText
                         id="scroll-dialog-description"
