@@ -17,5 +17,6 @@ const Template = (args) => <App {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
-    maxWidth: 'xl'
+    maxWidth: 'xl',
+    disableGutters: false
 }

@@ -110,7 +110,7 @@ export default function AppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <MuiAppBar position="static">
+            <MuiAppBar position="fixed">
                 <Toolbar
                     menuId={menuId}
                     mobileMenuId={mobileMenuId}

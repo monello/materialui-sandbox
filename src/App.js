@@ -1,18 +1,30 @@
-// import CssBaseline from '@mui/material/CssBaseline';
-// import Box from '@mui/material/Box';
-// import Container from '@mui/material/Container';
+import * as React from 'react';
+import AppBar from './components/AppBar/AppBar'
+import MuiToolbar from "@mui/material/Toolbar";
 
 import { CssBaseline, Box, Container } from '@mui/material'
 
+
 function App(props) {
-  const { maxWidth } = props;
+  const { maxWidth, disableGutters } = props;
   return (
-    <>
+    <React.Fragment>
       <CssBaseline />
-      <Container maxWidth={maxWidth}>
-        <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} />
+      <AppBar />
+      <MuiToolbar />
+      <Container>
+        <Box sx={{ my: 2 }}>
+          {[...new Array(50)]
+            .map(
+              () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
+            )
+            .join("\n")}
+        </Box>
       </Container>
-    </>
+    </React.Fragment>
   );
 }
 
