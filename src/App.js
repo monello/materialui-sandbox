@@ -4,6 +4,7 @@ import MuiToolbar from "@mui/material/Toolbar";
 
 import { CssBaseline, Box, Container } from '@mui/material'
 
+import { LoremIpsum } from "react-lorem-ipsum";
 
 function App(props) {
   const { maxWidth, disableGutters } = props;
@@ -14,14 +15,11 @@ function App(props) {
       <MuiToolbar />
       <Container>
         <Box sx={{ my: 2 }}>
-          {[...new Array(50)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-            )
-            .join("\n")}
+          <LoremIpsum
+            p={6}
+            avgWordsPerSentence={10}
+            avgSentencesPerParagraph={10}
+          />
         </Box>
       </Container>
     </React.Fragment>
