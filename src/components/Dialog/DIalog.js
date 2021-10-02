@@ -7,6 +7,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
+import Slide from '@mui/material/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function PaperComponent(props) {
     return (
@@ -53,6 +58,7 @@ export default function ScrollDialog() {
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
                 PaperComponent={PaperComponent}
+                TransitionComponent={Transition}
             >
                 <DialogTitle style={{ cursor: 'move' }} id="scroll-dialog-title">Subscribe</DialogTitle>
                 <DialogContent dividers={scroll === 'paper'}>
