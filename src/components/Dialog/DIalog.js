@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
+import MuiDialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -24,7 +24,7 @@ function PaperComponent(props) {
     );
 }
 
-export default function ScrollDialog() {
+export default function Dialog() {
     const [open, setOpen] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
 
@@ -51,7 +51,7 @@ export default function ScrollDialog() {
         <div>
             <Button onClick={handleClickOpen('paper')}>scroll=paper</Button>
             <Button onClick={handleClickOpen('body')}>scroll=body</Button>
-            <Dialog
+            <MuiDialog
                 open={open}
                 onClose={handleClose}
                 scroll={scroll}
@@ -81,7 +81,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleClose}>Subscribe</Button>
                 </DialogActions>
-            </Dialog>
+            </MuiDialog>
         </div>
     );
 }

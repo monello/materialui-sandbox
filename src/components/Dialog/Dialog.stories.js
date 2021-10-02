@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Dialog from './DIalog'
+import Dialog from './Dialog'
 
 export default {
     title: 'Material-UI/Dialog',
