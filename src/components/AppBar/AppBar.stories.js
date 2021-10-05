@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AppBar from './AppBar'
-import MuiToolbar from "@mui/material/Toolbar";
+import ToolbarSpacer from '../../utils/ToolbarSpacer';
 
 import { LoremIpsum } from "react-lorem-ipsum";
 
@@ -12,7 +12,7 @@ export default {
         (Story) => (
             <>
                 <Story />
-                <MuiToolbar />
+                <ToolbarSpacer />
                 <LoremIpsum
                     p={6}
                     avgWordsPerSentence={10}

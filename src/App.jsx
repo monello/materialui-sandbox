@@ -1,9 +1,9 @@
-import * as React from 'react';
-import AppBar from './components/AppBar/AppBar'
-import SpeedDial from './components/SpeedDial/SpeedDial'
-import MuiToolbar from "@mui/material/Toolbar";
+import * as React from "react";
+import AppBar from "./components/AppBar/AppBar";
+import SpeedDial from "./components/SpeedDial/SpeedDial";
+import ToolbarSpacer from "./utils/ToolbarSpacer";
 
-import { CssBaseline, Box, Container } from '@mui/material'
+import { CssBaseline, Box, Container } from "@mui/material";
 
 import { LoremIpsum } from "react-lorem-ipsum";
 
@@ -13,7 +13,7 @@ function App(props) {
     <React.Fragment>
       <CssBaseline />
       <AppBar />
-      <MuiToolbar />
+      <ToolbarSpacer />
       <SpeedDial />
       <Container>
         <Box sx={{ my: 2 }}>
