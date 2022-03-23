@@ -14,8 +14,8 @@ export default {
 }
 
 const Template = (args) => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [_, setAnchorEl] = React.useState(null);
+    const [_1, setMobileMoreAnchorEl] = React.useState(null);
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);

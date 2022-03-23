@@ -1,9 +1,6 @@
 import * as React from "react"
 
-// MUI - Styles
-import { styled } from "@mui/material/styles"
 // MUI - Components
-import MuiAppBar from "@mui/material/AppBar"
 import Badge from "@mui/material/Badge"
 import MenuItem from "@mui/material/MenuItem"
 import Menu from "@mui/material/Menu"
@@ -12,28 +9,10 @@ import IconButton from "@mui/material/IconButton"
 import AccountCircle from "@mui/icons-material/AccountCircle"
 import MailIcon from "@mui/icons-material/Mail"
 import NotificationsIcon from "@mui/icons-material/Notifications"
+// Styled Components
+import AppBarStyled from "./AppBar.styled"
 // Components
 import Toolbar from "../Toolbar/Toolbar"
-
-const drawerWidth = 240
-
-const AppBarStyled = styled(MuiAppBar)(({ theme, open }) => {
-    return {
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(["width", "margin"], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        ...(open && {
-            marginLeft: drawerWidth,
-            width: `calc(100% - ${drawerWidth}px)`,
-            transition: theme.transitions.create(["width", "margin"], {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-        }),
-    }
-})
 
 export default function AppBar(props) {
     const { drawerIsOpen, handleDrawerOpen } = props

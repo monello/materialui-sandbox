@@ -9,20 +9,20 @@ export default {
 }
 
 const Template = (args) => {
-    const [open, setOpen] = React.useState(false);
+    const [drawerIsOpen, setDrawerOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
-        setOpen(true);
+        setDrawerOpen(true);
     };
     const handleDrawerClose = () => {
-        setOpen(false);
+        setDrawerOpen(false);
     };
     return (
         <>
             <div style={{ marginLeft: 100 + 'px' }}>
                 <Button variant="text" onClick={handleDrawerOpen}>Open</Button>
             </div>
-            <SideDrawer {...args} open={open} handleDrawerClose={handleDrawerClose} />
+            <SideDrawer {...args} drawerIsOpen={drawerIsOpen} handleDrawerClose={handleDrawerClose} />
         </>
     )
 };
