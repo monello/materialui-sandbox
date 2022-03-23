@@ -1,52 +1,79 @@
-import * as React from 'react';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '../Toolbar/Toolbar';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import * as React from "react"
 
-export default function AppBar() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+// MUI - Styles
+import { styled } from "@mui/material/styles"
+// MUI - Components
+import MuiAppBar from "@mui/material/AppBar"
+import Badge from "@mui/material/Badge"
+import MenuItem from "@mui/material/MenuItem"
+import Menu from "@mui/material/Menu"
+import IconButton from "@mui/material/IconButton"
+// MUI - Icons
+import AccountCircle from "@mui/icons-material/AccountCircle"
+import MailIcon from "@mui/icons-material/Mail"
+import NotificationsIcon from "@mui/icons-material/Notifications"
+// Components
+import Toolbar from "../Toolbar/Toolbar"
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+const drawerWidth = 240
+
+const AppBarStyled = styled(MuiAppBar)(({ theme, open }) => {
+    return {
+        zIndex: theme.zIndex.drawer + 1,
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        ...(open && {
+            marginLeft: drawerWidth,
+            width: `calc(100% - ${drawerWidth}px)`,
+            transition: theme.transitions.create(["width", "margin"], {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        }),
+    }
+})
+
+export default function AppBar(props) {
+    const { drawerIsOpen, handleDrawerOpen } = props
+
+    const [anchorEl, setAnchorEl] = React.useState(null)
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
+
+    const isMenuOpen = Boolean(anchorEl)
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
     const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+        setAnchorEl(event.currentTarget)
+    }
 
     const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
+        setMobileMoreAnchorEl(null)
+    }
 
     const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
+        setAnchorEl(null)
+        handleMobileMenuClose()
+    }
 
     const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
+        setMobileMoreAnchorEl(event.currentTarget)
+    }
 
-    const menuId = 'primary-search-account-menu';
+    const menuId = "primary-search-account-menu"
     const renderMenu = (
         <Menu
             anchorEl={anchorEl}
             anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
             }}
             id={menuId}
             keepMounted
             transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
             }}
             open={isMenuOpen}
             onClose={handleMenuClose}
@@ -54,27 +81,31 @@ export default function AppBar() {
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
-    );
+    )
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
+    const mobileMenuId = "primary-search-account-menu-mobile"
     const renderMobileMenu = (
         <Menu
             anchorEl={mobileMoreAnchorEl}
             anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
             }}
             id={mobileMenuId}
             keepMounted
             transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
             }}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                <IconButton
+                    size="large"
+                    aria-label="show 4 new mails"
+                    color="inherit"
+                >
                     <Badge badgeContent={4} color="error">
                         <MailIcon />
                     </Badge>
@@ -106,20 +137,22 @@ export default function AppBar() {
                 <p>Profile</p>
             </MenuItem>
         </Menu>
-    );
+    )
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <MuiAppBar position="fixed">
+        <>
+            <AppBarStyled position="fixed" open={drawerIsOpen}>
                 <Toolbar
                     menuId={menuId}
                     mobileMenuId={mobileMenuId}
+                    drawerIsOpen={drawerIsOpen}
                     handleMobileMenuOpen={handleMobileMenuOpen}
                     handleProfileMenuOpen={handleProfileMenuOpen}
+                    handleDrawerOpen={handleDrawerOpen}
                 />
-            </MuiAppBar>
+            </AppBarStyled>
             {renderMobileMenu}
             {renderMenu}
-        </Box>
-    );
+        </>
+    )
 }

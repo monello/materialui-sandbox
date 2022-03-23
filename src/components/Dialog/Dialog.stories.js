@@ -3,7 +3,7 @@ import React from 'react';
 import Dialog from './Dialog'
 import Button from '@mui/material/Button';
 
-import { addDecorator } from "@storybook/react";
+// import { addDecorator } from "@storybook/react";
 
 export default {
     title: 'Material-UI/Dialog',

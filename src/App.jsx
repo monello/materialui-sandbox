@@ -1,31 +1,52 @@
-import * as React from "react";
-import AppBar from "./components/AppBar/AppBar";
-import SpeedDial from "./components/SpeedDial/SpeedDial";
-import ToolbarSpacer from "./utils/ToolbarSpacer";
+import * as React from "react"
 
-import { CssBaseline, Box, Container } from "@mui/material";
+// MUI - Material
+import { CssBaseline, Box, Container } from "@mui/material"
 
-import { LoremIpsum } from "react-lorem-ipsum";
+// MUI - Components
+import AppBar from "./components/AppBar/AppBar"
+import SideDrawer from "./components/SideDrawer/SideDrawer"
 
-function App(props) {
-  const { maxWidth, disableGutters } = props;
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <AppBar />
-      <ToolbarSpacer />
-      <SpeedDial />
-      <Container>
-        <Box sx={{ my: 2 }}>
-          <LoremIpsum
-            p={6}
-            avgWordsPerSentence={10}
-            avgSentencesPerParagraph={10}
-          />
+// Utils
+import ToolbarSpacer from "./utils/ToolbarSpacer"
+import { LoremIpsum } from "react-lorem-ipsum"
+
+function App() {
+    const [drawerIsOpen, setDrawerOpen] = React.useState(false)
+
+    const handleDrawerOpen = () => {
+        console.log("handleDrawerOpen() - 07:26")
+        setDrawerOpen(true)
+    }
+
+    const handleDrawerClose = () => {
+        console.log("handleDrawerClose() - 07:26")
+        setDrawerOpen(false)
+    }
+
+    return (
+        <Box sx={{ display: "flex" }}>
+            <CssBaseline />
+            <AppBar
+                drawerIsOpen={drawerIsOpen}
+                handleDrawerOpen={handleDrawerOpen}
+            />
+            <SideDrawer
+                drawerIsOpen={drawerIsOpen}
+                handleDrawerClose={handleDrawerClose}
+            />
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <Container>
+                    <ToolbarSpacer />
+                    <LoremIpsum
+                        p={6}
+                        avgWordsPerSentence={10}
+                        avgSentencesPerParagraph={10}
+                    />
+                </Container>
+            </Box>
         </Box>
-      </Container>
-    </React.Fragment>
-  );
+    )
 }
 
-export default App;
+export default App

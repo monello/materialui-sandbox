@@ -3,7 +3,7 @@ import React from 'react';
 import App from './App'
 
 export default {
-    title: 'App',
+    title: 'App/App',
     component: App,
     argTypes: {
         maxWidth: {
@@ -15,8 +15,8 @@ export default {
 
 const Template = (args) => <App {...args} />;
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const LoggedIn = Template.bind({});
+LoggedIn.args = {
     maxWidth: 'xl',
     disableGutters: false
 }

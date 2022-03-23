@@ -1,17 +1,18 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import MuiDialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Paper from '@mui/material/Paper';
-import Draggable from 'react-draggable';
-import Slide from '@mui/material/Slide';
+import * as React from "react"
+import Draggable from "react-draggable"
+// MUI - Components
+import Button from "@mui/material/Button"
+import MuiDialog from "@mui/material/Dialog"
+import DialogActions from "@mui/material/DialogActions"
+import DialogContent from "@mui/material/DialogContent"
+import DialogContentText from "@mui/material/DialogContentText"
+import DialogTitle from "@mui/material/DialogTitle"
+import Paper from "@mui/material/Paper"
+import Slide from "@mui/material/Slide"
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+    return <Slide direction="up" ref={ref} {...props} />
+})
 
 function PaperComponent(props) {
     return (
@@ -21,20 +22,20 @@ function PaperComponent(props) {
         >
             <Paper {...props} />
         </Draggable>
-    );
+    )
 }
 
 export default function Dialog(props) {
-    const { open, scroll, handleClose } = props;
-    const descriptionElementRef = React.useRef(null);
+    const { open, scroll, handleClose } = props
+    const descriptionElementRef = React.useRef(null)
     React.useEffect(() => {
         if (open) {
-            const { current: descriptionElement } = descriptionElementRef;
+            const { current: descriptionElement } = descriptionElementRef
             if (descriptionElement !== null) {
-                descriptionElement.focus();
+                descriptionElement.focus()
             }
         }
-    }, [open]);
+    }, [open])
 
     return (
         <MuiDialog
@@ -46,8 +47,10 @@ export default function Dialog(props) {
             PaperComponent={PaperComponent}
             TransitionComponent={Transition}
         >
-            <DialogTitle style={{ cursor: 'move' }} id="scroll-dialog-title">Subscribe</DialogTitle>
-            <DialogContent dividers={scroll === 'paper'}>
+            <DialogTitle style={{ cursor: "move" }} id="scroll-dialog-title">
+                Subscribe
+            </DialogTitle>
+            <DialogContent dividers={scroll === "paper"}>
                 <DialogContentText
                     id="scroll-dialog-description"
                     ref={descriptionElementRef}
@@ -58,9 +61,9 @@ export default function Dialog(props) {
                             () => `Crasx mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
                         )
-                        .join('\n')}
+                        .join("\n")}
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -68,5 +71,5 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
                 <Button onClick={handleClose}>Subscribe</Button>
             </DialogActions>
         </MuiDialog>
-    );
+    )
 }
